@@ -1,10 +1,5 @@
-from selenium.webdriver.common.by import By
 from pages.main_page import MainPage
-
-
-def go_to_login_page(browser):
-    login_link = browser.find_element(By.CSS_SELECTOR, "#login_link")
-    login_link.click()
+from pages.login_page import LoginPage
 
 
 def test_guest_can_do_to_login_page(browser):
@@ -13,3 +8,5 @@ def test_guest_can_do_to_login_page(browser):
     page.open()
     page.go_to_login_page()
     page.should_be_login_link()
+    login_page = LoginPage(browser, link)
+    login_page.should_be_login_page()
